@@ -1,0 +1,44 @@
+---
+title: "Relation between Sepal and Petal Parameters in Iris Data Set"
+author: "Salman Virani"
+date: '2022-06-26'
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## IRIS Datset
+
+This famous (Fisher's or Anderson's) iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica.
+
+## R Shiny App
+
+An interactive graph will be plotted by the R Shiny App based on user defined parameters. Libraries used are: 
+
+```
+library(shiny)
+library(ggplot2)
+library(dplyr)
+library(plotly)
+```
+
+## A Glimpse of IRIS Data
+
+```{r comment=""}
+data(iris)
+head(iris)
+```
+
+## Plotly Output Code Inside App
+
+```
+ggplotly(ggplot(data, aes(color = Species)) +
+               geom_point(mapping = aes_string(x = input$x, y = input$y)) +
+               labs(title = "Scatter Plot from Iris Dataset"))
+```
+
+## Thanks
